@@ -4,6 +4,7 @@
 //	@file Author: [404] Deadbeat
 //	@file Created: 20/11/2012 05:19
 //	@file Args:
+// change the player start items from this file
 
 _player = _this;
 //Player initialization

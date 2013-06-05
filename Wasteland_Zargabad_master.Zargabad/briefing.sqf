@@ -1,6 +1,21 @@
 player createDiarySubject ["404games", "404Games Information"];
 player createDiarySubject ["changelog", "404Games Change Log"];
 player createDiarySubject ["wasteland", "What is Wasteland?"];
+player createDiarySubject ["FPSU", "FPSU Server Information"];
+
+player createDiaryRecord["FPSU",
+["Welcome to the FPS Underground Arma 2 CO Wasteland Zargabad server."
+"<br/>
+Be respectful of other players and obey admins.<br/>
+No hacking or scripting <br/>
+No talking in Global voice chat <br/>
+Use teamwork, no team killing<br/>
+<br/> 
+Appeal ban on our forums at fpsunderground.com<br/>
+We will be offering custom features for $5 a month donations, see forums.
+]
+];
+
 
 player createDiaryRecord["changelog",
 [

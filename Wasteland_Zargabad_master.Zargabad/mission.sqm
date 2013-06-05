@@ -73,7 +73,7 @@ class Mission
 	randomSeed=15307759;
 	class Intel
 	{
-		briefingName="WASTELAND ZARGABAD (2.9) MODIFIED BY BOBBYDIGITAL";
+		briefingName="WASTELAND ZARGABAD 2.9 Edited by Switcher";
 		briefingDescription="Wasteland is a harsh survival sandbox";
 		resistanceWest=0;
 		startWeather=0.31198925;

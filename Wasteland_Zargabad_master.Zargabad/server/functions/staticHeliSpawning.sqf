@@ -34,7 +34,7 @@ while {_counter < 19} do // 19 helis spawn at the beginning
 
 //{diag_log format["Heli %1 = %2",_forEachIndex, _x];} forEach currentStaticHelis;
 
-for "_i" from 1 to 2 do {
+for "_i" from 1 to 4 do {
     _doSpawnWreck = true;
     
     { // Check if current iteration already exists as a live heli...

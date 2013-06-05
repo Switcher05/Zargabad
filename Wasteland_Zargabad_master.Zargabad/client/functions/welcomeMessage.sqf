@@ -27,7 +27,7 @@ switch(str(side player)) do {
 };
 
 _message = format ["<t shadow=""1""><t size=""2"">%1</t> (%2)<br/>%4<br/>%3</t>",
-	localize "STR_WL_Welcome To Hotile Takeover Wasteland",
+	localize "STR_WL_Welcome To FPS Underground Wasteland",
 	versionName,
 	format [localize _teamrules, 
 		_teamicon,

@@ -83,8 +83,8 @@ weaponsArray = [
     ["M110 NV","M110_NVG_EP1",1000,400],
     ["L115A3 LRR","BAF_LRR_scoped",1500,600],
     ["L115A2 LRR","BAF_LRR_scoped_W",1500,600],
-    ["KSVK","KSVK",2000,700],
-    ["M107","m107",2000,700]
+    ["KSVK","KSVK",2500,700],
+    ["M107","m107",2500,700]
 ];
 
 //Gun Store Ammo List
@@ -120,8 +120,8 @@ ammoArray = [
 	["10Rnd SVD","10Rnd_762x54_SVD",25],
 	["5Rnd L115A1","5Rnd_86x70_L115A1",25],
 	["20Rnd VSS","20Rnd_9x39_SP5_VSS",25],
-	["10Rnd. M107","10Rnd_127x99_m107",50],
-	["5Rnd KSVK.","5Rnd_127x108_KSVK",25],
+	["10Rnd. M107","10Rnd_127x99_m107",75],
+	["5Rnd KSVK.","5Rnd_127x108_KSVK",60],
     ["IED 1.","BAF_ied_v1",200],
     ["IED 2.","BAF_ied_v2",500],
     ["IED 3.","BAF_ied_v3",200],
@@ -163,7 +163,7 @@ generalStore = [
     ["Camo Net", "camonet", localize "STR_WL_ShopDescriptions_Camo", "",300,150]  
 ];
 
-// Chernarus town and city array
+// Zargabad town and city array
 //Marker Name, Radius, City Name
 cityList = [
 		["Town_0",200,"Yarum"],

@@ -276,8 +276,9 @@ player createDiaryRecord["404games",
 "Bug and Cheat Reporting",
 "
 <br/>
-	Found a bug? Please report it at: http://www.hostiletakeoverclan.com<br/><br/>
-	Suspect a player is hacking or exploiting? Please report it at: http://www.hostiletakeoverclan.com<br/><br/>
+	Meet the team, Join Teamspeak 
+ts21.gameservers.com:9263  password: outkast<br/><br/>
+	Suspect a player is hacking or exploiting? Please report it at: fpsunderground.com<br/><br/>
 	Please remeber this game-mode is in continuous development and there will be bugs. 
 "
 ]

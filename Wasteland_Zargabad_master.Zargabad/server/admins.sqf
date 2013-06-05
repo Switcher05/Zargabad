@@ -1,11 +1,11 @@
 if(!X_Server) exitWith {};
 
 //Admin menu access levels
-moderators = ["78469574"]; 
+moderators = []; 
 publicVariable "moderators"; 
            
 administrators = [];
 publicVariable "administrators";
 
-serverAdministrators = ["3496384","99969286","35827334"];
+serverAdministrators = ["68478918"]
 publicVariable "serverAdministrators";

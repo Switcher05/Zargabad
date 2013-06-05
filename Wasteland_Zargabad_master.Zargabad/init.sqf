@@ -58,3 +58,8 @@ if(X_Server) then {
 _null = [] execVM "addons\scripts\cleanup.sqf";
 
 execVM "vehicleRespawn\init.sqf";
+
+if (!isDedicated) then {
+	execVM "x_init_backback.sqf";
+};
+

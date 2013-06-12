@@ -63,24 +63,6 @@ if(str(playerSide) in ["GUER"]) then
 	_player selectWeapon "M9";
 };
 
-_donators = ["110661894","123123","123123"];
-_uid = getPlayerUID player;
-
-{
-if (_x == _uid) then {
-removeAllWeapons _player;
-_player addMagazine "10Rnd_127x99_m107";
-_player addMagazine "10Rnd_127x99_m107";
-_player addWeapon "m107";
-_player addWeapon "M9SD";
-_player addMagazine "15Rnd_9x19_M9";
-_player addMagazine "15Rnd_9x19_M9";
-_player addMagazine "15Rnd_9x19_M9";
-_player selectWeapon "M9SD";
-_player setVariable["camonet",1,false];
-_player setVariable["medkits",1,false];
-};
-}forEach _donators;
 _player addrating 1000000;
 _player switchMove "amovpknlmstpsraswpstdnon_gear";
 
@@ -98,15 +80,7 @@ _player setVariable["fuelEmpty", 0, false];
 _player setVariable["bombs",false,false];
 _player setVariable["spawnBeacon",0,false];
 _player setVariable["camonet",0,false];
-//set backpack up
-{
-if (_x == _uid) then {
-_player setVariable["camonet",1,false];
-_player setVariable["medkits",1,false];
-_player setVariable["cmoney",500,false];
-};
-}forEach _donators;
-//
+
 [] execVM "client\functions\playerActions.sqf";
 
 _player groupChat format["Player Initialization Complete"];

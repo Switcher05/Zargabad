@@ -4,9 +4,8 @@ _player = _this select 0;
 // BAF_Soldier_EN_W
  
 playerSkins = [
-//["Name", "Player ID", "Indy Model", "Blufor Model", "Opfor Model"],
-["Switcher", "110661894", "Soldier_TL_PMC", "US_Soldier_Sniper_EP1", "TK_Soldier_Pilot_EP1"],
-
+["GAME NAME", "Player ID", "", "US_Delta_Force_Medic_EP1", ""],
+["Name", "Player ID", "Indy Model", "Blufor Model", "Opfor Model"],
 ["GAME NAME", "Player ID", "GUE_Soldier_AT", "", ""]
 ];
  

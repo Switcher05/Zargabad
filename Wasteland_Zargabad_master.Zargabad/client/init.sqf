@@ -13,13 +13,6 @@ pvar_PlayerTeamKiller = objNull;
 currentMissionsMarkers = [];
 currentRadarMarkers = [];
 
-//Apply Custom Skins
-hint "Start Apply Skin 1";
-_h = [player] execVM "client\functions\applySkin.sqf";
-waitUntil {scriptDone _h};
-hint "Skin Applied";
-
- 
 //Initialization Variables
 playerCompiledScripts = false;
 playerSetupComplete = false;
@@ -37,8 +30,6 @@ if(!(playerSide in [west, east, resistance])) then {
 
 //Player setup
 player call playerSetup;
-
-
 
 //Setup player events.
 if(!isNil "client_initEH") then {player removeEventHandler ["Respawn", client_initEH];};
@@ -77,3 +68,9 @@ if (isNil "FZF_IC_INIT") then   {
 sleep 1;
 true spawn playerSpawn;
 [] spawn FZF_IC_INIT;
+
+//Apply Custom Skins
+//hint "Start Apply Skin 1";
+//_h = [player] execVM "client\functions\applySkin.sqf";
+//waitUntil {scriptDone _h};
+//hint "Skin Applied";

@@ -25,12 +25,3 @@ _car addMagazineCargoGlobal [_mag,2];
 _car addMagazineCargoGlobal [_mag,(random 4)];
 _car addWeaponCargoGlobal [_weapon,1];
 
-//Get Random Gun From randomWeapons Array.
-_weapon = vehicleWeapons select (random (count vehicleWeapons - 1));
-_mag = (getArray (configFile >> "Cfgweapons" >> _weapon >> "magazines")) select 0;
-
-//Add guns and magazines, note the Global at the end..
-_car addMagazineCargoGlobal [_mag,2];
-_car addMagazineCargoGlobal [_mag,2];
-_car addMagazineCargoGlobal [_mag,(random 4)];
-_car addWeaponCargoGlobal [_weapon,1];

@@ -74,7 +74,7 @@ class Mission
 	class Intel
 	{
 		briefingName="WASTELAND ZARGABAD 2.9 Edited by Switcher";
-		briefingDescription="Wasteland is a harsh survival sandbox";
+		briefingDescription="FPS Underground wasteland Zargabad server. fpsunderground.com";
 		resistanceWest=0;
 		startWeather=0.31198925;
 		startFog=0.28938186;

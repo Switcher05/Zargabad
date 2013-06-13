@@ -81,7 +81,8 @@ militaryVehicles = ["UAZ_CDF",
 					"HMMWV",
 					"HMMWV_Ambulance",
 					"S1203_ambulance_EP1",
-					"GAZ_Vodnik_MedEvac"];
+					"GAZ_Vodnik_MedEvac",
+					"UralRepair_TK_EP1"];
 
 //Armed Military Vehicle List - Random Spawns
 armedMilitaryVehicles = ["ArmoredSUV_PMC",
@@ -92,13 +93,16 @@ armedMilitaryVehicles = ["ArmoredSUV_PMC",
 						 "LandRover_MG_TK_INS_EP1",
 						 "HMMWV_M2",
 						 "HMMWV_M1151_M2_DES_EP1",
+						 "HMMWV_Avenger_DES_EP1",
 						 "HMMWV_Armored",
                          "HMMWV_MK19",
 						 "HMMWV_TOW",
                          "UAZ_MG_CDF",
                          "GAZ_Vodnik",
 						 "BAF_Jackal2_L2A1_D",
-						 "BAF_Jackal2_L2A1_w"];
+						 "BAF_Jackal2_L2A1_w",
+						 "BAF_FV510_W",
+						 "M6_EP1"];
 //Item Config
 pickupList = ["Satelit",
 				"EvMoney",
@@ -178,7 +182,8 @@ staticHeliList = ["UH1H_TK_GUE_EP1",
                 "CH_47F_EP1",
                 "MH6J_EP1",
                 "UH60M_MEV_EP1",
-                "AH6X_EP1"];
+                "AH6X_EP1",
+				"UH1H_TK_GUE_EP1"];
 
 //Random Weapon List - Change this to what you want to spawn in cars.
 vehicleWeapons = ["AK_107_kobra",

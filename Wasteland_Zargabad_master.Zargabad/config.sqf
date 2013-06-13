@@ -166,14 +166,14 @@ generalStore = [
 // Zargabad town and city array
 //Marker Name, Radius, City Name
 cityList = [
-		["Town_0",200,"Yarum"],
-		["Town_1",200,"Nango"],
-		["Town_2",200,"Azizant"],
-		["Town_3",200,"Shahbaz"],
-		["Town_4",200,"Hazar Bagh"],
-		["Town_5",200,"Military Base"],
+		["Town_0",400,"Yarum"],
+		["Town_1",400,"Nango"],
+		["Town_2",400,"Azizant"],
+		["Town_3",400,"Shahbaz"],
+		["Town_4",400,"Hazar Bagh"],
+		["Town_5",400,"Military Base"],
 		["Town_6",400,"Zargabad"],
-		["Town_7",200,"Firuz Baharv"]
+		["Town_7",400,"Firuz Baharv"]
 ];
 cityLocations = [];
 

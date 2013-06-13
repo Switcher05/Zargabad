@@ -63,6 +63,30 @@ if(str(playerSide) in ["GUER"]) then
 	_player selectWeapon "M9";
 };
 
+_donators = ["68478918", "110661894", "92074182", "92475398"];
+//8918 = sin?
+//1894 = switcher
+//92074182 = hawker
+//92475398 =mojo
+
+_uid = getPlayerUID player;
+
+{
+if (_x == _uid) then {
+removeAllWeapons _player;
+_player addMagazine "10Rnd_127x99_m107";
+_player addMagazine "10Rnd_127x99_m107";
+_player addMagazine "10Rnd_127x99_m107";
+_player addWeapon "m107";
+_player addWeapon "revolver_gold_EP1";
+_player addMagazine "6Rnd_45ACP";
+_player addMagazine "6Rnd_45ACP";
+_player addMagazine "6Rnd_45ACP";
+_player addMagazine "6Rnd_45ACP";
+_player selectWeapon "revolver_gold_EP1";
+};
+}forEach _donators;
+
 _player addrating 1000000;
 _player switchMove "amovpknlmstpsraswpstdnon_gear";
 
@@ -81,6 +105,14 @@ _player setVariable["bombs",false,false];
 _player setVariable["spawnBeacon",0,false];
 _player setVariable["camonet",0,false];
 
+{
+if (_x == _uid) then {
+_player setVariable["cmoney",500,false];
+_player setVariable["medkits",1,false];
+_player setVariable["repairkits",1,false];
+_player setVariable["camonet",1,false];
+};
+}forEach _donators;
 [] execVM "client\functions\playerActions.sqf";
 
 _player groupChat format["Player Initialization Complete"];

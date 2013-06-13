@@ -56,7 +56,7 @@ if(X_Server) then {
 [] execVM "addons\proving_Ground\init.sqf";
 [0.1, 0.5, 0.5] execVM "addons\scripts\DynamicWeatherEffects.sqf";
 _null = [] execVM "addons\scripts\cleanup.sqf";
-
+[] execVM "BTK\Cargo Drop\Start.sqf";
 execVM "vehicleRespawn\init.sqf";
 
 if (!isDedicated) then {

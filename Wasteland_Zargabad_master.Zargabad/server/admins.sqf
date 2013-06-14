@@ -1,9 +1,10 @@
 if(!X_Server) exitWith {};
 
 //Admin menu access levels
-moderators = ["21669702"]; 
+moderators = ["21669702","63148422"]; 
 publicVariable "moderators"; 
 //21669702 = blood.bandit
+//pee
            
 administrators = [];
 publicVariable "administrators";

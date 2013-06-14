@@ -27,9 +27,11 @@ if (_isWreck == 0) then {
 } else {
 	//diag_log "Spawning heli wreck...";
 	_spawnType = staticHeliList select (random (count staticHeliList - 1));
-	_currHeli = createVehicle [_spawnType,_spawnPos,[], 50,"None"]; 
-	
-	_currHeli setpos [getpos _currHeli select 0,getpos _currHeli select 1,0];
+	_currHeli = createVehicle [_spawnType,_spawnPos,[], 50,"None"];
+_currHeli setVehicleInit "nul=[this, 300, 0, 0, false] execVM 'server\functions\heli.sqf'";
+processInitCommands;
+
+_currHeli setpos [getpos _currHeli select 0,getpos _currHeli select 1,0]
 	
 	clearMagazineCargoGlobal _currHeli;
 	clearWeaponCargoGlobal _currHeli;

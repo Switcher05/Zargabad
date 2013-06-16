@@ -57,6 +57,7 @@ for "_i" from 0 to ((count _objs) - 1) do
 		_newObj = _type createVehicle _newPos;
 		_newObj setDir (_azi + _azimuth);
 		_newObj setPos _newPos;
+		_newObj setVariable ["objectLocked", true, true];
 		if (!isNil "_fuel") then {_newObj setFuel _fuel};
 		if (!isNil "_damage") then {_newObj setDamage _damage};
 		if (!isNil "_vehicleinit") then {_newObj setVehicleInit format ["%1;",_vehicleinit]};

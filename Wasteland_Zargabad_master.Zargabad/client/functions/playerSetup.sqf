@@ -78,6 +78,11 @@ _player addMagazine "10Rnd_127x99_m107";
 _player addMagazine "10Rnd_127x99_m107";
 _player addMagazine "10Rnd_127x99_m107";
 _player addWeapon "m107";
+_player addWeapon "M4A1_AIM_SD_CAMO";
+
+_player addMagazine "30Rnd_556x45_StanagSD";
+_player addMagazine "30Rnd_556x45_StanagSD";
+_player addMagazine "30Rnd_556x45_StanagSD";
 _player addWeapon "revolver_gold_EP1";
 _player addMagazine "6Rnd_45ACP";
 _player addMagazine "6Rnd_45ACP";
@@ -104,10 +109,11 @@ _player setVariable["fuelEmpty", 0, false];
 _player setVariable["bombs",false,false];
 _player setVariable["spawnBeacon",0,false];
 _player setVariable["camonet",0,false];
+_player setVariable["canDrop",false,false];
 
 {
 if (_x == _uid) then {
-_player setVariable["cmoney",500,false];
+_player setVariable["cmoney",1000,false];
 _player setVariable["medkits",1,false];
 _player setVariable["repairkits",1,false];
 _player setVariable["camonet",1,false];

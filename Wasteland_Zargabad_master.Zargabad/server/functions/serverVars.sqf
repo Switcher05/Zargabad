@@ -39,6 +39,8 @@ pvar_beaconListBlu = [];
 publicVariable "pvar_beaconListBlu";
 pvar_beaconListRed = []; 
 publicVariable "pvar_beaconListRed";
+pvar_beaconListIndep = []; 
+publicVariable "pvar_beaconListIndep";
 clientMissionMarkers = [];
 publicVariable "clientMissionMarkers";
 clientRadarMarkers = [];
@@ -52,6 +54,15 @@ publicVariable "currentInvites";
 
 currentStaticHelis = []; // Storage for the heli marker numbers so that we don't spawn wrecks on top of live helis
 
+staticHeliWrecks = [
+	"UH1Wreck",
+    "UH1Wreck",
+    "Mi8Wreck",
+    "Mi8Wreck",
+    "C130J_wreck_EP1",
+    "UH60_wreck_EP1",
+    "UH60_wreck_EP1"];
+	
 //Civilian Vehicle List - Random Spawns
 civilianVehicles = ["car_hatchback",
 					"car_sedan",
@@ -82,7 +93,9 @@ militaryVehicles = ["UAZ_CDF",
 					"HMMWV_Ambulance",
 					"S1203_ambulance_EP1",
 					"GAZ_Vodnik_MedEvac",
-					"UralRepair_TK_EP1"];
+					"UralRepair_TK_EP1",
+					"UralReammo_TK_EP1",
+					"UralRefuel_TK_EP1"];
 
 //Armed Military Vehicle List - Random Spawns
 armedMilitaryVehicles = ["ArmoredSUV_PMC",
@@ -100,9 +113,7 @@ armedMilitaryVehicles = ["ArmoredSUV_PMC",
                          "UAZ_MG_CDF",
                          "GAZ_Vodnik",
 						 "BAF_Jackal2_L2A1_D",
-						 "BAF_Jackal2_L2A1_w",
-						 "BAF_FV510_W",
-						 "M6_EP1"];
+						 "BAF_Jackal2_L2A1_w"];
 //Item Config
 pickupList = ["Satelit",
 				"EvMoney",

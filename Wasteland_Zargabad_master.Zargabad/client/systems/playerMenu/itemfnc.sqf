@@ -111,16 +111,19 @@ switch(_switch) do
 		if(vehicle player != player) exitwith {
         	player globalChat "YOU ARE CURRENTLY BUSY!";
         };
+       if (!(player getVariable "canDrop")) exitWith {
+		player globalChat "YOU CANNOT DROP ITEMS YET!";
+        };
         
         mutexScriptInProgress = true;
-        
+        _prevState = animationState player;
 		player switchMove "AinvPknlMstpSlayWrflDnon_medic"; // Begin the full medic animation...
 		sleep 3;
 		_pos = getPosATL player;
 		//Drops the item and sets values & variables
 		switch(_data) do 
 		{
-			case "canfood": {player setVariable["canfood",(player getVariable "canfood")-1,true]; _temp = "Land_Bag_EP1" createVehicle (position player); _temp setPos [(_pos select 0)+1, _pos select 1, _pos select 2]; _temp setVariable["food",10,true];};
+			case "canfood": {player setVariable["canfood",(player getVariable "canfood")-1,true]; _temp = "Land_Sack_EP1" createVehicle (position player); _temp setPos [(_pos select 0)+1, _pos select 1, _pos select 2]; _temp setVariable["food",10,true];};
 			case "fuelFull": {player setVariable["fuelFull",(player getVariable "fuelFull")-1,true]; _temp = "Fuel_can" createVehicle (position player); _temp setVariable["fuel", true, true]; _temp setPos _pos;};
 			case "fuelEmpty": {player setVariable["fuelEmpty", (player getVariable "fuelEmpty")-1,true]; _temp = "Fuel_can" createVehicle (position player); _temp setVariable["fuel", false, true]; _temp setPos _pos;};
 			case "repairkits": {player setVariable["repairkits", (player getVariable "repairkits")-1,true]; _temp = "Suitcase" createVehicle (position player); _temp setPos _pos;};
@@ -134,8 +137,9 @@ switch(_switch) do
             _droppedBeacon setPos _pos;
             };
 		};
+		sleep 1;
         mutexScriptInProgress = false;
-        player SwitchMove "amovpknlmstpslowwrfldnon_amovpercmstpsraswrfldnon"; // Redundant reset of animation state to avoid getting locked in animation. 
+        player SwitchMove "a_prevState"; // Redundant reset of animation state to avoid getting locked in animation. 
         closeDialog 0; // To fix the listbox not updating properly.
 	};
 };

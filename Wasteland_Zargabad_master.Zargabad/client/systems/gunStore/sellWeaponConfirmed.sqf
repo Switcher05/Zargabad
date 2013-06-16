@@ -1,9 +1,11 @@
-
 //	@file Version: 1.0
-//	@file Name: sellWeapon.sqf
-//	@file Author: [404] Deadbeat, [404] Costlyy
-//	@file Created: 20/11/2012 05:13
+//	@file Name: loadSellConfirm.sqf
+//	@file Author: [404] Costlyy
+//	@file Created: 13th May 2013
 //	@file Args:
+
+// Close the dialog.
+closeDialog 0;
 
 //Initialize Values
 private["_primaryWeapon","_magazineType","_weaponValue","_magazineValue"];
@@ -39,11 +41,11 @@ mutexScriptInProgress = true;
         {
 			if (_x == _magazineType) then {
 		    	_magazineValue = _magazineValue + 5;
+                player removeMagazine _x;
 		    };
 		} forEach magazines player;
     };
 } forEach _weaponMagazineArray;
-
 
 // Get primary weapon and retrieve value.
 {
@@ -55,8 +57,12 @@ mutexScriptInProgress = true;
 // Calculate the total amount due back to the player...
 _totalValue = _magazineValue + _weaponValue;
 
-mutexScriptInProgress = false;
+diag_log format["total value = %1", _totalValue];
+diag_log format["mag value = %1", _magazineValue];
+diag_log format["weap value = %1", _weaponValue];
 
-// Value calculations complete.. Now we load the confirmation dialog.
-_confirmSell = [_primaryWeapon, _totalValue] call loadSellConfirm;
+player removeWeapon _primaryWeapon;
+player setVariable ["cmoney", (player getVariable ["cmoney", 0]) + _totalValue, true];
+hint format["Sold weapon and magazines for $%1", _totalValue];
 
+mutexScriptInProgress = false;;

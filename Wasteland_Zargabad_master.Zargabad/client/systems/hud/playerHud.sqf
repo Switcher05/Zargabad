@@ -21,7 +21,13 @@ while {true} do
     _health = round (_health * (10 ^ _decimalPlaces)) / (10 ^ _decimalPlaces);
     _health = 100 - (_health * 100);
     
-    _vitals ctrlSetStructuredText parseText format ["%1 <img size='0.8' image='client\icons\health.paa'/><br/>%2 <img size='0.8' image='client\icons\food.paa'/><br/>%3 <img size='0.8' image='client\icons\water.paa'/><br/>%4 <img size='0.8' image='\CA\misc\data\icons\picture_money_CA.paa'/>", _health, hungerLevel, thirstLevel, (player getVariable "cmoney")];
+    _playerMoney = player getVariable "cmoney";
+    
+    if (_playerMoney >= 10000) then {
+    	_playerMoney = "10k";
+    };
+    
+    _vitals ctrlSetStructuredText parseText format ["%1 <img size='0.8' image='client\icons\health.paa'/><br/>%2 <img size='0.8' image='client\icons\food.paa'/><br/>%3 <img size='0.8' image='client\icons\water.paa'/><br/>%4 <img size='0.8' image='\CA\misc\data\icons\picture_money_CA.paa'/>", _health, hungerLevel, thirstLevel, _playerMoney];
     _vitals ctrlCommit 0;
         
     if(player != vehicle player) then
@@ -31,8 +37,24 @@ while {true} do
         _vehicle = assignedVehicle player;
 
         {
-            _tempString = format ["%1 %2 <img size='0.8' image='client\icons\arrow.paa'/><br/>",_tempString, (name _x)];
-            _yOffset = _yOffset + 0.04;
+            if((driver _vehicle == _x) || (gunner _vehicle == _x)) then
+            {
+                if(driver _vehicle == _x) then
+                {
+                    _tempString = format ["%1 %2 <img size='0.8' image='client\icons\driver.paa'/><br/>",_tempString, (name _x)];
+                    _yOffset = _yOffset + 0.04;
+                }
+                else
+                {
+                    _tempString = format ["%1 %2 <img size='0.8' image='client\icons\gunner.paa'/><br/>",_tempString, (name _x)];
+                    _yOffset = _yOffset + 0.04;
+                }; 
+            }
+            else
+            {
+                _tempString = format ["%1 %2 <img size='0.8' image='client\icons\cargo.paa'/><br/>",_tempString, (name _x)];
+                _yOffset = _yOffset + 0.04;
+            };    
         } forEach crew _vehicle;
 
         _hudVehicle ctrlSetStructuredText parseText _tempString;

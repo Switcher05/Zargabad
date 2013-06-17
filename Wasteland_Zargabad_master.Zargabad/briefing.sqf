@@ -14,14 +14,11 @@ Be respectful of other players and obey admins.<br/>
 No hacking or scripting <br/>
 No talking in Global voice chat <br/>
 Use teamwork, no team killing<br/>
-Do not recruit in this server<br/>
 <br/> <br/>
 Appeal ban on our forums at fpsunderground.com<br/>
-Join our teamspeak at ts21.gameservers.com:9263 password: augfirst
+Join our teamspeak at ts.21.gameservers.com:9263 password: augfirst
 We will be offering custom features for $6 a month donations, see forums.
 	<br/>
-	<br/>
-	
 
 "
 ]

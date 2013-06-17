@@ -18,6 +18,8 @@ _player removeWeapon "ItemGPS";
 removeAllWeapons _player;
 removeBackpack _player;
 
+
+
 //Default case means something fucked up.
 _player addMagazine "6Rnd_45ACP";
 _player addMagazine "6Rnd_45ACP";
@@ -28,6 +30,8 @@ if(str(playerSide) in ["WEST"]) then
 {
     removeAllWeapons _player;
     _player addMagazine "30Rnd_556x45_Stanag";
+    _player addMagazine "30Rnd_556x45_Stanag";
+	_player addMagazine "30Rnd_556x45_Stanag";
     _player addMagazine "30Rnd_556x45_Stanag";
 	_player addMagazine "17Rnd_9x19_glock17";
     _player addMagazine "17Rnd_9x19_glock17";
@@ -41,6 +45,8 @@ if(str(playerSide) in ["EAST"]) then
 {
     removeAllWeapons _player;
     _player addMagazine "30Rnd_545x39_AK";
+	_player addMagazine "30Rnd_545x39_AK";
+	_player addMagazine "30Rnd_545x39_AK";
 	_player addMagazine "30Rnd_545x39_AK";
     _player addMagazine "7Rnd_45ACP_1911";
 	_player addMagazine "7Rnd_45ACP_1911";
@@ -57,13 +63,15 @@ if(str(playerSide) in ["GUER"]) then
 	_player addMagazine "15Rnd_9x19_M9";
 	_player addMagazine "30Rnd_762x39_SA58";
 	_player addMagazine "30Rnd_762x39_SA58";
+	_player addMagazine "30Rnd_762x39_SA58";
+	_player addMagazine "30Rnd_762x39_SA58";
     _player addWeapon "Sa58P_EP1";
 	_player selectWeapon "Sa58P_EP1";	
 	_player addWeapon "M9";
 	_player selectWeapon "M9";
 };
 
-_donators = ["68478918", "110661894", "92074182", "92475398"];
+_donators = ["68478918","92074182", "92475398","129977734","110661894"];
 //8918 = sin?
 //1894 = switcher
 //92074182 = hawker
@@ -77,12 +85,12 @@ removeAllWeapons _player;
 _player addMagazine "10Rnd_127x99_m107";
 _player addMagazine "10Rnd_127x99_m107";
 _player addMagazine "10Rnd_127x99_m107";
-_player addWeapon "m107";
-_player addWeapon "M4A1_AIM_SD_CAMO";
-
-_player addMagazine "30Rnd_556x45_StanagSD";
-_player addMagazine "30Rnd_556x45_StanagSD";
-_player addMagazine "30Rnd_556x45_StanagSD";
+_player addMagazine "10Rnd_127x99_m107";
+_player addMagazine "10Rnd_127x99_m107";
+_player addMagazine "10Rnd_127x99_m107";
+_player addWeapon "PMC_AS50_scoped_Large";
+_player addWeapon "Javelin";
+_player addMagazine "Javelin";
 _player addWeapon "revolver_gold_EP1";
 _player addMagazine "6Rnd_45ACP";
 _player addMagazine "6Rnd_45ACP";
@@ -111,6 +119,7 @@ _player setVariable["spawnBeacon",0,false];
 _player setVariable["camonet",0,false];
 _player setVariable["canDrop",false,false];
 
+
 {
 if (_x == _uid) then {
 _player setVariable["cmoney",1000,false];
@@ -119,7 +128,9 @@ _player setVariable["repairkits",1,false];
 _player setVariable["camonet",1,false];
 };
 }forEach _donators;
+
 [] execVM "client\functions\playerActions.sqf";
+
 
 _player groupChat format["Player Initialization Complete"];
 playerSetupComplete = true;

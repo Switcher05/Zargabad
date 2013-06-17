@@ -69,26 +69,11 @@ waitUntil
 
 if(_result == 1) then
 {
-	_hint = parseText format ["<t align='center' color='%3' shadow='2' size='1.75'>Objective Failed</t><br/><t align='center' color='%3'>------------------------------</t><br/><t align='center' color='%4' size='1.25'>%1</t><br/><t align='center' color='%4'>Objective failed. Enemy airstrike inbound!</t>", _missionType, _vehicleName, failMissionColor, subTextColor];
+	//Mission Failed.
+    {deleteVehicle _x;}forEach units CivGrpM;
+    deleteGroup CivGrpM;
+    _hint = parseText format ["<t align='center' color='%3' shadow='2' size='1.75'>Objective Failed</t><br/><t align='center' color='%3'>------------------------------</t><br/><t align='center' color='%4' size='1.25'>%1</t><br/><t align='center' color='%4'>Objective failed, better luck next time</t>", _missionType, _vehicleName, failMissionColor, subTextColor];
 	[nil,nil,rHINT,_hint] call RE;
-    
-    sleep 20;
-    
-	//Mission Failed. Firstly obliterate the site.
-    _bomb = "Bo_GBU12_LGB" createVehicle [(_randomPos select 0),(_randomPos select 1), 50]; 
-    sleep 1;
-    _bomb = "Bo_GBU12_LGB" createVehicle [(_randomPos select 0) + 5,(_randomPos select 1) - 5, 50];
-    sleep 1;
-    _bomb = "Bo_GBU12_LGB" createVehicle [(_randomPos select 0),(_randomPos select 1) + 10, 50];
-    
-    sleep 10;
-    
-    _baseToDelete = nearestObjects [_randomPos, ["All"], 22];
-    { deleteVehicle _x; } forEach _baseToDelete;
-    
-    {deleteVehicle _x;}forEach units CivGrpL;
-    deleteGroup CivGrpL;
-	
     diag_log format["WASTELAND SERVER - Mission Failed"];
 } else {
 	//Mission Complete.

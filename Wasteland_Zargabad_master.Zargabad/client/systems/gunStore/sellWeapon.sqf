@@ -6,57 +6,28 @@
 //	@file Args:
 
 //Initialize Values
-private["_primaryWeapon","_magazineType","_weaponValue","_magazineValue"];
+private["_primary","_magazine","_weapon_value","_magSell"];
+_magSell = 0;
+_weapon_value = 0;
+_primary = "";
+_primary = currentWeapon player;
+if(_primary == "") exitWith {hint "You don't have a current weapon in your hand to sell!";};
 
-_magazineValue = 0;
-_weaponValue = 25; // Default value for unknown weapons.
-_primaryWeapon = currentWeapon player;
-_weaponMagazineArray = (getArray (configFile >> "Cfgweapons" >> _primaryWeapon >> "magazines"));
-
-// PREREQUISITE: Player must have a weapon to sell, othewise do nothing.
-if(_primaryWeapon == "") exitWith {};
-
-// Check if mutex lock is active.
-if(mutexScriptInProgress) exitWith {
-	player globalChat "ERROR: ALREADY PERFORMING ANOTHER ACTION!";
-};	
-
-// Check if player is alive.
-if(!(alive player)) exitWith {
-	player globalChat "ERROR: YOU ARE CURRENTLY DEAD.";
-    closeDialog 0;
-};	
-
-mutexScriptInProgress = true;
-
-// Get magazine type.
 {
 	if(_x in magazines player) then
     {
-		_magazineType = _x;
-        
-        // Calculate the value of the magazines the player has for the gun being sold.
-        {
-			if (_x == _magazineType) then {
-		    	_magazineValue = _magazineValue + 5;
-		    };
-		} forEach magazines player;
+		_magazine = _x;
     };
-} forEach _weaponMagazineArray;
+} foreach (getArray (configFile >> "Cfgweapons" >> _primary >> "magazines"));
 
+{if(_x select 1 == _primary) then {_weapon_value = _x select 3;};}forEach weaponsArray;
 
-// Get primary weapon and retrieve value.
-{
-	if(_x select 2 == _primaryWeapon) then {
-    	_weaponValue = _x select 4;
-    };
-}forEach weaponsArray;
+if(isNil {_weapon_value}) exitWith {hint "The store does not want this item."};
 
-// Calculate the total amount due back to the player...
-_totalValue = _magazineValue + _weaponValue;
+_weapon_value = 25; // This is for weapons that aren't in the gunstore stock list. TODO fix the sell price.
 
-mutexScriptInProgress = false;
+player removeWeapon _primary;
+player removeMagazines _magazine;
 
-// Value calculations complete.. Now we load the confirmation dialog.
-_confirmSell = [_primaryWeapon, _totalValue] call loadSellConfirm;
-
+player setVariable ["cmoney", (player getVariable ["cmoney", 0]) + _weapon_value, true];
+hint format["You sold your gun for $%1", _weapon_value];

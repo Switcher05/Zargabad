@@ -35,28 +35,13 @@ for "_iteration" from 1 to _actionDuration do {
 	if(vehicle player != player) exitWith {
 		player globalChat localize "STR_WL_Errors_BeaconInVehicle";
         player action ["eject", vehicle player];
-        mutexScriptInProgress = false;
 		sleep 1;
 	};
-    
-    if (doCancelAction) exitWith {// Player selected "cancel action".
-    	2 cutText ["", "PLAIN DOWN", 1];
-        doCancelAction = false;
-    	mutexScriptInProgress = false;
-	}; 
-    
-    if (!(alive player)) exitWith {// If the player dies, revert state.
-		2 cutText ["Pack radar station interrupted...", "PLAIN DOWN", 1];
-    	mutexScriptInProgress = false;
-	}; 
 
-	if(player distance _currObject > 5) exitWith { // If the player dies, revert state.
-		2 cutText ["Pack radar station interrupted...", "PLAIN DOWN", 1];
-		mutexScriptInProgress = false;       
-    };                         
+	if(!alive player) exitWith {};                         
                                                         	    
 	if (animationState player != "AinvPknlMstpSlayWrflDnon_medic") then { // Keep the player locked in medic animation for the full duration of the placement.
-		player switchMove "AinvPknlMstpSlayWrflDnon_medic";
+	player switchMove "AinvPknlMstpSlayWrflDnon_medic";
 	};
 			    
 	_actionDuration = _actionDuration - 1;
@@ -64,6 +49,11 @@ for "_iteration" from 1 to _actionDuration do {
 					    
 	2 cutText [format["Re-packing radar station %1%2 complete", _iterationPercentage, _stringEscapePercent], "PLAIN DOWN", 1];
 	sleep 1;
+					    
+	if(player distance _currObject > 50) exitWith { // If the player dies, revert state.
+	2 cutText ["Re-pack radar station interrupted...", "PLAIN DOWN", 1];
+	mutexScriptInProgress = false;
+	};
 					    
 	if (_iteration >= _totalDuration) exitWith { // Sleep a little extra to show that place has completed.
 		sleep 1;
@@ -81,7 +71,7 @@ for "_iteration" from 1 to _actionDuration do {
         _stationPos = position _radarStation;
         _radarTank = "M1133_MEV_EP1" createVehicle (_stationPos);
         _radarTank setVariable ["deployed", 0, true];
-        _radarTank setVariable["newVehicle",1,true];
+        _radarTank setVariable["original",1,true];
         _radarTank setFuel (_radarStation getVariable "prevFuel");
         _radarTank setDamage (_radarStation getVariable "prevDamage");
       	deleteVehicle (nearestobjects [getpos player, ["M1130_HQ_unfolded_Base_EP1"],  15] select 0);
@@ -92,8 +82,7 @@ for "_iteration" from 1 to _actionDuration do {
 				clientRadarMarkers = clientRadarMarkers - ["REMOVETHISCRAP"];
 		        publicVariableServer "clientRadarMarkers";    
 		    };
-		}forEach clientRadarMarkers;   
-                                   
+		}forEach clientRadarMarkers;                              
 		mutexScriptInProgress = false; 
         hint "You have successfully re-packed the Mobile Radar Station.";       
 	};     

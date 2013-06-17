@@ -16,5 +16,5 @@ staticGunCreation = compile preprocessFileLineNumbers "server\spawning\staticGun
 staticHeliCreation = compile preprocessFileLineNumbers "server\spawning\staticHeliCreation.sqf";
 server_playerDied = compile preprocessFileLineNumbers "server\functions\serverPlayerDied.sqf";
 fn_refillbox = compile preprocessFileLineNumbers "server\functions\fn_refillbox.sqf";
-createLootMoney = compile preprocessFileLineNumbers "server\functions\dropLoot.sqf";
+
 serverCompiledScripts = true;

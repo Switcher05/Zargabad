@@ -5,12 +5,6 @@
 //@file Description: The client init.
 
 if(!X_Client) exitWith {};
-// Disable player from killing in the spawn area.
-player enableSimulation false; 
-removeAllWeapons player;
-
-// Start the loading screen ASAP.
-titleText ["Loading...", "BLACK OUT", 0];
 
 mutexScriptInProgress = false;
 respawnDialogActive = false;
@@ -73,7 +67,6 @@ if (isNil "FZF_IC_INIT") then   {
 };
 sleep 1;
 true spawn playerSpawn;
-[] execVM "client\functions\antiCheatClient.sqf";
 [] spawn FZF_IC_INIT;
 
 //Apply Custom Skins

@@ -22,11 +22,7 @@ teamkillAction = compile preprocessFileLineNumbers "client\functions\doTeamKillA
 teamkillMessage = compile preprocessFileLineNumbers "client\functions\showTeamKillMessage.sqf";
 loadGeneralStore = compile preprocessFileLineNumbers "client\systems\generalStore\loadGenStore.sqf";
 loadGunStore = compile preprocessFileLineNumbers "client\systems\gunStore\loadGunStore.sqf";
-// placeCammoNet = compile preprocessFileLineNumbers "client\systems\playerMenu\placeCammoNet.sqf";
-// useMedicalKit = compile preprocessFileLineNumbers "client\systems\playerMenu\useMedicalKit.sqf";
-// useEdibleItem = compile preprocessFileLineNumbers "client\systems\playerMenu\useEdibleItem.sqf";
-loadSellConfirm = compile preprocessFileLineNumbers "client\systems\gunStore\loadSellConfirm.sqf";
-sellWeaponConfirmed = compile preprocessFileLineNumbers "client\systems\gunStore\sellWeaponConfirmed.sqf";
+
 player groupChat "Client Compile Complete";
 sleep 1;
 playerCompiledScripts = true;

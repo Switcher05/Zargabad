@@ -1,6 +1,6 @@
 //	@file Version: 1.0
 //	@file Name: optionSelect.sqf
-//	@file Author: [404] Deadbeat, [404] Costlyy
+//	@file Author: [404] Deadbeat
 //	@file Created: 20/11/2012 05:19
 //	@file Args:
 
@@ -86,7 +86,6 @@ if ((_uid in moderators) OR (_uid in administrators) OR (_uid in serverAdministr
 	                closeDialog 0;    
 	                hint "Click on map to teleport";
 	                onMapSingleClick "vehicle player setPos _pos; onMapSingleClick '';true;";
-                    openMap true;
 			    };
 	            case 4: //Money
 			    {      
@@ -128,15 +127,14 @@ if ((_uid in moderators) OR (_uid in administrators) OR (_uid in serverAdministr
 					hint format["Server FPS: %1",serverFPS];
 			    };
 	            case 5: //Test Function
-			    {
-					_nerfBoxes = ["basicUS","basicUS2","basicRU","basicRU2","basicGER","basicPMC","basicSpecial","basicSpecial2","basicSpecial3"];
-                    _playerLoc = getPos player;
-                    
-                    {	
-                        _safePos = [_playerLoc, 1, 5, 1, 0, 60 * (pi / 180), 0] call BIS_fnc_findSafePos;
-                        [_x, _safePos] execVM "server\spawning\boxCreation.sqf"; 
-                        
-                    } forEach _nerfBoxes;
+			    {      
+					if(group player == grpNull) then
+	                {
+	                    hint "not in a group";
+	                } else {
+	                    _unitCount = count units group player;
+	                	hint format["In a group of %1 players", _unitCount];    
+	                };
 			    };
 			};		
 	    };
